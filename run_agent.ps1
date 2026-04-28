@@ -20,8 +20,8 @@ git checkout -b "feature/$TicketID"
 Write-Output "✅ Git branch created."
 
 # 2. Run Aider headless to apply changes
-# It will automatically pick up the GEMINI_API_KEY from your system variables
-aider --model gemini/gemini-2.5-flash --message "$Instruction" --yes-always
+# It will automatically pick up the OPENROUTER_API_KEY from your system variables
+aider --model openrouter/qwen/qwen-3-coder-480b-a35b-instruct:free --message "$Instruction" --yes-alwayss
 
 # 3. Commit and push the new code
 git add .
