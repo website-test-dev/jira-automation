@@ -21,7 +21,7 @@ Write-Output "✅ Git branch created."
 
 # 2. Run Aider headless to apply changes
 # It will automatically pick up the OPENROUTER_API_KEY from your system variables
-aider --model openrouter/qwen/qwen-3-coder-480b-a35b-instruct:free --message "$Instruction" --yes-alwayss
+aider --model openrouter/qwen/qwen-3-coder-480b-a35b-instruct:free --message "$Instruction" --yes-always
 
 # 3. Commit and push the new code
 git add .
