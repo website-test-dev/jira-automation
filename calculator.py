@@ -1,4 +1,3 @@
-python
 # calculator.py
 
 class Calculator:
@@ -26,17 +25,20 @@ class Calculator:
             return None
         return a / b
 
+    def power(self, a, b):
+        """Return a raised to the power of b."""
+        return a ** b
+
     def run_tests(self):
         """Run a set of example calculations and display the results."""
         print("Welcome to the Calculator")
         print(f"2 + 3 = {self.add(2, 3)}")
         print(f"5 - 2 = {self.subtract(5, 2)}")
         print(f"4 * 5 = {self.multiply(4, 5)}")
-        # Example division test (optional)
-        try:
-            print(f"10 / 2 = {self.divide(10, 2)}")
-        except ZeroDivisionError as e:
-            print(e)
+        # Example division test
+        print(f"10 / 2 = {self.divide(10, 2)}")
+        # Example power test
+        print(f"2 ** 3 = {self.power(2, 3)}")
 
 if __name__ == "__main__":
     calc = Calculator()
