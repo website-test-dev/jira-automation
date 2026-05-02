@@ -1,47 +1,43 @@
-import unittest
+# calculator.py
 
-from calculator import Calculator
+class Calculator:
+    """A simple calculator class providing basic arithmetic operations."""
 
+    def add(self, a, b):
+        """Return the sum of a and b."""
+        return a + b
 
-class TestCalculator(unittest.TestCase):
-    """Unit tests for the Calculator class."""
+    def subtract(self, a, b):
+        """Return the difference of a and b."""
+        return a - b
 
-    def setUp(self):
-        """Create a Calculator instance before each test."""
-        self.calc = Calculator()
+    def multiply(self, a, b):
+        """Return the product of a and b."""
+        return a * b
 
-    # Tests for the add method
-    def test_add_positive_numbers(self):
-        """Adding two positive numbers should return their sum."""
-        result = self.calc.add(10, 5)
-        self.assertEqual(result, 15)
+    def divide(self, a, b):
+        """Return the division of a by b.
 
-    def test_add_negative_numbers(self):
-        """Adding two negative numbers should return their sum."""
-        result = self.calc.add(-3, -7)
-        self.assertEqual(result, -10)
+        Raises:
+            ZeroDivisionError: If b is zero.
+        """
+        if b == 0:
+            raise ZeroDivisionError("Division by zero is undefined.")
+        return a / b
 
-    def test_add_mixed_sign_numbers(self):
-        """Adding a positive and a negative number should return the correct result."""
-        result = self.calc.add(8, -3)
-        self.assertEqual(result, 5)
-
-    # Tests for the subtract method
-    def test_subtract_positive_numbers(self):
-        """Subtracting a smaller positive number from a larger one should return the difference."""
-        result = self.calc.subtract(10, 4)
-        self.assertEqual(result, 6)
-
-    def test_subtract_negative_numbers(self):
-        """Subtracting a negative number should effectively add its absolute value."""
-        result = self.calc.subtract(-5, -2)
-        self.assertEqual(result, -3)
-
-    def test_subtract_mixed_sign_numbers(self):
-        """Subtracting a positive number from a negative number should return the correct negative result."""
-        result = self.calc.subtract(-3, 5)
-        self.assertEqual(result, -8)
+    def run_tests(self):
+        """Run a set of example calculations and display the results."""
+        print("Welcome to the Calculator")
+        print(f"2 + 3 = {self.add(2, 3)}")
+        print(f"5 - 2 = {self.subtract(5, 2)}")
+        print(f"4 * 5 = {self.multiply(4, 5)}")
+        # Example division test (optional)
+        try:
+            print(f"10 / 2 = {self.divide(10, 2)}")
+        except ZeroDivisionError as e:
+            print(e)
 
 
 if __name__ == "__main__":
-    unittest.main()
+    calc = Calculator()
+    calc.run_tests()
