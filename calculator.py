@@ -30,16 +30,11 @@ class Calculator:
     def sqrt(self, a):
         """Return the square root of a.
 
-        If a is negative, prints an error message and returns None.
+        If a is negative, returns an error message string instead of a numeric result.
         """
         if a < 0:
-            print("Error: Cannot take square root of a negative number")
-            return None
+            return "Error: Cannot take square root of a negative number"
         return math.sqrt(a)
-
-    def power(self, a, b):
-        """Return a raised to the power of b."""
-        return a ** b
 
     def run_tests(self):
         """Run a set of example calculations and display the results."""
@@ -53,12 +48,12 @@ class Calculator:
         except ZeroDivisionError as e:
             print(e)
 
-        # Power test
-        print(f"2 ** 3 = {self.power(2, 3)}")
-
         # Square root tests
-        print(f"sqrt(16) = {self.sqrt(16)}")
-        print(f"sqrt(-4) = {self.sqrt(-4)}")
+        sqrt_positive = self.sqrt(16)
+        print(f"sqrt(16) = {sqrt_positive}")
+
+        sqrt_negative = self.sqrt(-4)
+        print(f"sqrt(-4) = {sqrt_negative}")
 
 if __name__ == "__main__":
     calc = Calculator()
