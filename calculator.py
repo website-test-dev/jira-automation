@@ -1,43 +1,31 @@
-# calculator.py
+import unittest
+from calculator import Calculator
 
-class Calculator:
-    """A simple calculator class providing basic arithmetic operations."""
+class TestCalculator(unittest.TestCase):
+    """Tests for Calculator add and subtract methods."""
 
-    def add(self, a, b):
-        """Return the sum of a and b."""
-        return a + b
+    def setUp(self):
+        self.calc = Calculator()
 
-    def subtract(self, a, b):
-        """Return the difference of a and b."""
-        return a - b
+    # add tests
+    def test_add_two_positives(self):
+        self.assertEqual(self.calc.add(2, 3), 5)
 
-    def multiply(self, a, b):
-        """Return the product of a and b."""
-        return a * b
+    def test_add_positive_and_negative(self):
+        self.assertEqual(self.calc.add(5, -2), 3)
 
-    def divide(self, a, b):
-        """Return the division of a by b.
+    def test_add_two_negatives(self):
+        self.assertEqual(self.calc.add(-4, -6), -10)
 
-        Raises:
-            ZeroDivisionError: If b is zero.
-        """
-        if b == 0:
-            raise ZeroDivisionError("Division by zero is undefined.")
-        return a / b
+    # subtract tests
+    def test_subtract_two_positives(self):
+        self.assertEqual(self.calc.subtract(10, 4), 6)
 
-    def run_tests(self):
-        """Run a set of example calculations and display the results."""
-        print("Welcome to the Calculator")
-        print(f"2 + 3 = {self.add(2, 3)}")
-        print(f"5 - 2 = {self.subtract(5, 2)}")
-        print(f"4 * 5 = {self.multiply(4, 5)}")
-        # Example division test (optional)
-        try:
-            print(f"10 / 2 = {self.divide(10, 2)}")
-        except ZeroDivisionError as e:
-            print(e)
+    def test_subtract_positive_and_negative(self):
+        self.assertEqual(self.calc.subtract(5, -3), 8)
 
+    def test_subtract_two_negatives(self):
+        self.assertEqual(self.calc.subtract(-5, -2), -3)
 
-if __name__ == "__main__":
-    calc = Calculator()
-    calc.run_tests()
+if __name__ == '__main__':
+    unittest.main()
