@@ -1,4 +1,3 @@
-python
 # calculator.py
 
 import math
@@ -38,6 +37,10 @@ class Calculator:
             return None
         return math.sqrt(a)
 
+    def power(self, a, b):
+        """Return a raised to the power of b."""
+        return a ** b
+
     def run_tests(self):
         """Run a set of example calculations and display the results."""
         print("Welcome to the Calculator")
@@ -49,6 +52,9 @@ class Calculator:
             print(f"10 / 2 = {self.divide(10, 2)}")
         except ZeroDivisionError as e:
             print(e)
+
+        # Power test
+        print(f"2 ** 3 = {self.power(2, 3)}")
 
         # Square root tests
         print(f"sqrt(16) = {self.sqrt(16)}")
