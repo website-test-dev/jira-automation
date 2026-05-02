@@ -1,3 +1,4 @@
+python
 # calculator.py
 
 class Calculator:
@@ -18,7 +19,7 @@ class Calculator:
     def divide(self, a, b):
         """Return the division of a by b.
 
-        If b is zero, prints an error message and returns None instead of raising an exception.
+        If b is zero, prints an error message and returns None.
         """
         if b == 0:
             print("Error: Cannot divide by zero")
@@ -31,12 +32,14 @@ class Calculator:
         print(f"2 + 3 = {self.add(2, 3)}")
         print(f"5 - 2 = {self.subtract(5, 2)}")
         print(f"4 * 5 = {self.multiply(4, 5)}")
-        # Example division test (normal case)
-        print(f"10 / 2 = {self.divide(10, 2)}")
-        # Example division test (zero divisor)
-        self.divide(10, 0)
-
+        # Example division test (optional)
+        try:
+            print(f"10 / 2 = {self.divide(10, 2)}")
+        except ZeroDivisionError as e:
+            print(e)
 
 if __name__ == "__main__":
     calc = Calculator()
     calc.run_tests()
+    # Test divide by zero
+    calc.divide(10, 0)
