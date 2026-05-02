@@ -1,4 +1,7 @@
+python
 # calculator.py
+
+import math
 
 class Calculator:
     """A simple calculator class providing basic arithmetic operations."""
@@ -25,9 +28,15 @@ class Calculator:
             return None
         return a / b
 
-    def power(self, a, b):
-        """Return a raised to the power of b."""
-        return a ** b
+    def sqrt(self, a):
+        """Return the square root of a.
+
+        If a is negative, prints an error message and returns None.
+        """
+        if a < 0:
+            print("Error: Cannot take square root of a negative number")
+            return None
+        return math.sqrt(a)
 
     def run_tests(self):
         """Run a set of example calculations and display the results."""
@@ -35,10 +44,15 @@ class Calculator:
         print(f"2 + 3 = {self.add(2, 3)}")
         print(f"5 - 2 = {self.subtract(5, 2)}")
         print(f"4 * 5 = {self.multiply(4, 5)}")
-        # Example division test
-        print(f"10 / 2 = {self.divide(10, 2)}")
-        # Example power test
-        print(f"2 ** 3 = {self.power(2, 3)}")
+        # Example division test (optional)
+        try:
+            print(f"10 / 2 = {self.divide(10, 2)}")
+        except ZeroDivisionError as e:
+            print(e)
+
+        # Square root tests
+        print(f"sqrt(16) = {self.sqrt(16)}")
+        print(f"sqrt(-4) = {self.sqrt(-4)}")
 
 if __name__ == "__main__":
     calc = Calculator()
